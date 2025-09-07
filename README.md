@@ -1,1 +1,1 @@
-# profile highlighting my projects
+# profile highlighting my projects.
