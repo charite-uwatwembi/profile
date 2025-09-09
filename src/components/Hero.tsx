@@ -36,20 +36,20 @@ export default function Hero() {
 
         {/* CONTENT (stays crisp) */}
         <div className="relative h-full px-6 md:px-10 flex items-center justify-between">
-          <div className="text-[18px] font-semibold text-neutral-900">Charite Uwatwembi</div>
+          <div className="text-[12px] font-semibold text-neutral-900">Charite Uwatwembi</div>
           <div className="flex items-center gap-2 text-[18px] font-semibold text-neutral-900">
-            <span className="inline-block w-3 h-3 rounded-full bg-emerald-500 animate-pulse" />
-            <span>Open</span>
+            <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-[12px]">Open</span>
           </div>
         </div>
 
       </motion.header>
 
       {/* Centered main content */}
-      <div className="flex items-start justify-center pt-16 px-4 sm:px-6 lg:px-8">
+      <div className="flex items-start justify-center pt-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl w-full">
           <motion.h1
-            className="serif text-[24px] sm:text-[28px] md:text-[32px] leading-[1.2] text-neutral-900"
+            className="serif text-[24px] sm:text-[28px] md:text-[30px] leading-[1.2] text-neutral-900"
             initial="hidden"
             animate="show"
             variants={{
@@ -106,18 +106,26 @@ export default function Hero() {
 
           {/* CTA */}
           <motion.div
-            className="mt-3 mb-4"
+            className="mt-6 mb-16"
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.16 }}
           >
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 rounded-[999px] bg-neutral-900 text-white px-6 py-3 text-[15px] font-medium btn-soft"
-            >
-              Get In Touch
-              <span aria-hidden>↗</span>
-            </a>
+              <a
+  href="#contact"
+  className="
+    inline-flex items-center gap-2
+    rounded-[999px]
+    bg-gradient-to-b from-neutral-500 from-6% via-neutral-800 via-10% to-neutral-900 text-white
+    px-6 py-3 text-[15px] font-medium
+    shadow-[0_12px_30px_rgba(0,0,0,0.6),inset_0_2px_0_rgba(255,255,255,0.3)]
+    transition hover:scale-[1.02] active:scale-[0.98]
+  "
+>
+  Get In Touch
+  <span aria-hidden>↗</span>
+</a>
+
           </motion.div>
         </div>
       </div>
