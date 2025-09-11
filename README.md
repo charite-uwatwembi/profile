@@ -1,1 +1,1 @@
-# This is profile showcasing my projects.🥱
+# This is a profile showcasing my projects.🥱
