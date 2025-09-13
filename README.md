@@ -1,1 +1,1 @@
-# This repository showcases my projects.🥱
+# This repo showcases my projects.🥱
