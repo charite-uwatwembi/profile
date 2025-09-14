@@ -1,1 +1,1 @@
-#  is showcasing my projects.🥱
+#  showcasing my projects.🥱
