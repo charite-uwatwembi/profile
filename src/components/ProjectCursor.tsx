@@ -44,7 +44,7 @@ export default function ProjectCursor({ isHovering }: ProjectCursorProps) {
       }}
     >
       <motion.div
-        className="flex items-center gap-2 bg-neutral-900 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg"
+        className="flex items-center gap-2 bg-neutral-900/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg border border-neutral-200/50"
         initial={{ scale: 0, opacity: 0 }}
         animate={{
           scale: isHovering ? 1 : 0,

@@ -62,7 +62,7 @@ export default function Projects() {
           {items.map((p) => (
             <motion.article
               key={p.title}
-              className="reveal rounded-2xl bg-white border border-neutral-200 hover:border-neutral-300 transition overflow-hidden shadow-sm hover:shadow-lg"
+              className="reveal rounded-2xl bg-neutral-100 border border-neutral-200 hover:border-neutral-300 transition overflow-hidden shadow-sm hover:shadow-lg"
               whileHover={{ y: -4 }}
               transition={{ type: "spring", stiffness: 220, damping: 22 }}
               onMouseEnter={() => setIsHovering(true)}
