@@ -1,1 +1,1 @@
-# profile highlighting my projects.🥱
+#  repo for showcasing my projects.🥱
