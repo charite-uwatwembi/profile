@@ -12,28 +12,28 @@ const items = [
     thumbnail: "/thumbnails/soilsync.png"
   },
   {
-    title: "Project 3",
+    title: "Cinetie",
     desc: "Short description of project 3.",
     link: "https://example.com/project3",
     tech: "React / TypeScript / Tailwind",
     thumbnail: "/thumbnails/cinetie.png"
   },
   {
-    title: "Project 4",
+    title: "AISFM",
     desc: "Short description of project 4.",
     link: "https://example.com/project4",
     tech: "React / TypeScript / Tailwind",
     thumbnail: "/thumbnails/aisfm.png"
   },
   {
-    title: "Project 5",
+    title: "ThinkGreen",
     desc: "Short description of project 5.",
     link: "https://example.com/project5",
     tech: "React / TypeScript / Tailwind",
     thumbnail: "/thumbnails/thinkgreen.png"
   },
   {
-    title: "Project 6",
+    title: "Conversational ChatBot",
     desc: "Short description of project 6.",
     link: "https://example.com/project6",
     tech: "React / TypeScript / Tailwind",
