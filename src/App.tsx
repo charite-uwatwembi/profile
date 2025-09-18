@@ -6,6 +6,7 @@ import CursorFollower from "./components/CursorFollower";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Projects from "./components/Projects";
+import Skills from "./components/Skills";
 import { useReveal } from "./hooks/useReveal";
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
       <main className="pt-20">
         <Hero />
         <Projects />
+        <Skills />
         <About />
         <Contact />
       </main>
