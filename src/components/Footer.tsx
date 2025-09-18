@@ -32,27 +32,27 @@ export default function Footer() {
 
         {/* Contact and Social Section */}
         <motion.div 
-          className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
+          className="text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
           viewport={{ once: true }}
         >
           {/* Email */}
-          <div className="flex items-center">
+          <div className="mb-6">
             <a 
               href="mailto:chariteuwatwembi@gmail.com"
               className="text-neutral-700 text-lg hover:text-neutral-900 transition-colors"
             >
               chariteuwatwembi@gmail.com
             </a>
-            <div className="ml-4 h-px bg-neutral-300 flex-1 max-w-32"></div>
+            <div className="mt-2 h-px bg-neutral-300 w-32 mx-auto"></div>
           </div>
 
           {/* Social Icons */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center justify-center gap-6">
             <a 
-              href="https://github.com/chariteuwatwembi" 
+              href="https://github.com/charite-uwatwembi" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-neutral-700 hover:text-neutral-900 transition-colors"
@@ -60,7 +60,7 @@ export default function Footer() {
               <Github className="w-6 h-6" />
             </a>
             <a 
-              href="https://medium.com/@chariteuwatwembi" 
+              href="https://medium.com/@c.uwatwembi" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-neutral-700 hover:text-neutral-900 transition-colors"
@@ -70,7 +70,7 @@ export default function Footer() {
               </svg>
             </a>
             <a 
-              href="https://linkedin.com/in/chariteuwatwembi" 
+              href="https://www.linkedin.com/in/uwatwembi-charite/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-neutral-700 hover:text-neutral-900 transition-colors"
@@ -80,12 +80,9 @@ export default function Footer() {
           </div>
         </motion.div>
 
-        {/* Separator Line */}
-        <div className="w-full h-px bg-neutral-300 my-8"></div>
-
         {/* Copyright */}
         <motion.div 
-          className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+          className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-16 pt-8 border-t border-neutral-200"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}

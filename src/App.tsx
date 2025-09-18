@@ -1,12 +1,13 @@
 // src/App.tsx
 
-import About from "./components/About";
 import Contact from "./components/Contact";
 import CursorFollower from "./components/CursorFollower";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Process from "./components/Process";
 import Projects from "./components/Projects";
+import ResearchPapers from "./components/ResearchPapers";
+import Services from "./components/Services";
 import Skills from "./components/Skills";
 import { useReveal } from "./hooks/useReveal";
 
@@ -20,7 +21,8 @@ export default function App() {
         <Projects />
         <Skills />
         <Process />
-        <About />
+        <Services />
+        <ResearchPapers />
         <Contact />
       </main>
       <Footer />
