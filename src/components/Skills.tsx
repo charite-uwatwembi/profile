@@ -45,7 +45,7 @@ export default function Skills() {
             <div className="w-2 h-2 bg-neutral-900 rounded-full"></div>
             <span className="text-sm font-medium text-neutral-900">Skills & Expertise</span>
           </div>
-          <h2 className="serif text-4xl sm:text-4xl font-light text-neutral-800">
+          <h2 className="serif text-4xl sm:text-4xl text-neutral-800" style={{fontWeight: 100}}>
             The knowledge that powers my designs and empathy
           </h2>
         </div>
