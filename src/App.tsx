@@ -5,6 +5,7 @@ import Contact from "./components/Contact";
 import CursorFollower from "./components/CursorFollower";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
+import Process from "./components/Process";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import { useReveal } from "./hooks/useReveal";
@@ -18,6 +19,7 @@ export default function App() {
         <Hero />
         <Projects />
         <Skills />
+        <Process />
         <About />
         <Contact />
       </main>
