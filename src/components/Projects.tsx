@@ -47,7 +47,7 @@ export default function Projects() {
   return (
     <section id="work" className="py-24 bg-white border-t border-neutral-200">
       <ProjectCursor isHovering={isHovering} />
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 ">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 ">
         <div className="mb-16 reveal">
           <div className="flex items-center gap-2 mb-4">
             <div className="w-2 h-2 bg-neutral-900 rounded-full"></div>

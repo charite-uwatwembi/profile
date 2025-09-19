@@ -61,7 +61,7 @@ export default function Hero() {
               <span className="text-neutral-500">Hey, I’m</span>
               {/* Inline rounded chip image */}
               <img
-                src="https://placehold.co/80x64/jpg?text=ME"
+                src="/thumbnails/charite.png"
                 alt=""
                 className="h-[64px] w-[80px] rounded-[20px] object-cover shadow-md"
               />

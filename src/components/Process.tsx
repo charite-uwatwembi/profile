@@ -327,7 +327,7 @@ const steps = [
 export default function Process() {
   return (
     <section id="process" className="py-24 bg-white border-t border-neutral-200">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="mb-16 reveal">
           <div className="flex items-center gap-2 mb-4">

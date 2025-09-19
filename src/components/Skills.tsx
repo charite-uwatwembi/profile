@@ -38,7 +38,7 @@ const workExperience = [
 export default function Skills() {
   return (
     <section id="skills" className="py-24 bg-white border-t border-neutral-200">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="mb-16 reveal">
           <div className="flex items-center gap-2 mb-4">
@@ -52,35 +52,35 @@ export default function Skills() {
 
         {/* Skills Card */}
         <motion.div 
-          className="reveal rounded-2xl bg-neutral-100 border border-neutral-200 overflow-hidden shadow-sm mb-12"
+          className="reveal rounded-2xl bg-white border border-neutral-200 overflow-hidden shadow-sm mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true }}
         >
           {/* Background Image Area */}
-          <div className="relative h-64 bg-neutral-200">
-            {/* Background Image - You can replace this with your actual image */}
-            <div className="absolute inset-0 bg-gradient-to-br from-neutral-300 to-neutral-400 flex items-center justify-center">
-              <div className="text-neutral-500 text-sm">Background Image Placeholder</div>
+          <div className="relative h-48 bg-neutral-200">
+            {/* Background Image */}
+            <div className="absolute inset-0">
+              <img src="/thumbnails/image.png" alt="Skills Background" className="w-full h-full object-cover blur-[1px]" />
             </div>
             
-            {/* Profile Picture */}
-            <div className="absolute bottom-4 left-4">
-              <div className="w-20 h-20 rounded-full border-2 border-neutral-900 overflow-hidden bg-neutral-300">
-                {/* Profile Image - You can replace this with your actual image */}
-                <div className="w-full h-full bg-neutral-400 flex items-center justify-center">
-                  <div className="text-neutral-600 text-xs">Profile</div>
-                </div>
+            {/* Profile Picture - positioned to overlap into white area */}
+            <div className="absolute -bottom-8 left-6">
+              <div className="w-24 h-24 rounded-full border-4 border-black overflow-hidden bg-neutral-300">
+                <img src="/thumbnails/charite.png" alt="Profile" className="w-full h-full object-cover" />
               </div>
             </div>
+          </div>
 
-            {/* Skill Tags */}
-            <div className="absolute bottom-4 right-4 flex gap-2">
+          {/* White content area with skill tags */}
+          <div className="relative pt-6 pb-6 px-6 ">
+            {/* Skill Tags - positioned in bottom right of white area */}
+            <div className="flex flex-wrap gap-2 justify-end">
               {skills.map((skill, index) => (
                 <motion.div
                   key={skill}
-                  className="px-3 py-1.5 bg-white rounded-lg text-sm font-medium text-neutral-900 shadow-sm"
+                  className="px-4 py-2 bg-neutral-200 rounded-lg text-sm font-medium text-neutral-800"
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ 
