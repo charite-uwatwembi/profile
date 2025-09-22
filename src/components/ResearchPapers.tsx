@@ -43,7 +43,7 @@ const ResearchPapers: React.FC = () => {
       category: "AI/ML",
       readTime: "8 min read",
       date: "Dec 15, 2024",
-      link: "#"
+      link: "https://medium.com/@c.uwatwembi/building-scalable-ai-systems-lessons-from-production-c79755319314"
     },
     {
       title: "The Future of Web Development: Trends to Watch in 2025",
