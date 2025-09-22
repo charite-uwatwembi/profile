@@ -42,7 +42,7 @@ const ResearchPapers: React.FC = () => {
       excerpt: "Key insights from deploying machine learning models at scale, covering infrastructure, monitoring, and performance optimization strategies.",
       category: "AI/ML",
       readTime: "8 min read",
-      date: "Dec 15, 2024",
+      date: "Sept 22, 2025",
       link: "https://medium.com/@c.uwatwembi/building-scalable-ai-systems-lessons-from-production-c79755319314"
     },
     {
@@ -50,24 +50,24 @@ const ResearchPapers: React.FC = () => {
       excerpt: "Exploring emerging technologies and frameworks that are shaping the future of web development, from AI integration to performance optimization.",
       category: "Web Development",
       readTime: "6 min read",
-      date: "Dec 10, 2024",
-      link: "#"
+      date: "Sept 10, 2025",
+      link: "https://medium.com/@c.uwatwembi/the-future-of-web-development-trends-to-watch-in-2025-c83e3f12fb18"
     },
     {
-      title: "Data Science Best Practices: From Research to Production",
-      excerpt: "A comprehensive guide to transitioning data science projects from experimental notebooks to production-ready systems.",
+      title: "Understanding Regularization in Deep Learning: L1, L2, Dropout, Data Augmentation, and Early Stopping Explained for Everyone",
+      excerpt: "When building deep learning models, we often run into a common issue called overfitting. ",
       category: "Data Science",
-      readTime: "12 min read",
-      date: "Dec 5, 2024",
-      link: "#"
+      readTime: "4 min read",
+      date: "Sep 27, 2024",
+      link: "https://medium.com/@c.uwatwembi/understanding-regularization-in-deep-learning-l1-l2-dropout-data-augmentation-and-early-5a5a24ac5954"
     },
     {
-      title: "Understanding Neural Network Interpretability",
-      excerpt: "Deep dive into techniques for making neural networks more interpretable and explainable, with practical examples and code.",
+      title: "Understanding Activation Functions in Neural Networks: A Deep Dive",
+      excerpt: "In neural networks, the activation function is a mathematical equation that determines the output of a neuron.",
       category: "AI/ML",
-      readTime: "10 min read",
-      date: "Nov 28, 2024",
-      link: "#"
+      readTime: "4 min read",
+      date: "Sep 14, 2024",
+      link: "https://medium.com/@c.uwatwembi/understanding-activation-functions-in-neural-networks-a-deep-dive-30a4cb7797c1"
     }
   ];
 
