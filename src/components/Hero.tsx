@@ -58,37 +58,49 @@ export default function Hero() {
             }}
           >
             <div className="flex items-center gap-3">
-              <span className="text-neutral-500">Hey, I’m</span>
+              <span className="text-neutral-500">Hey, I'm</span>
               {/* Inline rounded chip image */}
-              <img
-                src="/thumbnails/charite.png"
-                alt=""
-                className="h-[64px] w-[80px] rounded-[20px] object-cover shadow-md"
-              />
+              <div className="h-[56px] w-[78px] rounded-[32px] overflow-hidden shadow-md border-2 border-black">
+                <img
+                  src="/thumbnails/charite.png"
+                  alt=""
+                  className="w-full h-full object-cover"
+                  style={{ transform: 'scale(1)' }}
+                />
+              </div>
               <span className="ml-1">Charite</span>
             </div>
 
             <div className="mt-2 flex items-center gap-3">
               <span>Software Engineer</span>
-              <img
-                src="https://placehold.co/96x64/jpg?text=APP"
-                alt=""
-                className="h-[64px] w-[96px] rounded-[22px] object-cover shadow-md"
-              />
-              <img
-                src="https://placehold.co/96x64/jpg?text=UI"
-                alt=""
-                className="h-[64px] w-[96px] rounded-[22px] object-cover shadow-md"
-              />
+              <div className="h-[56px] w-[78px] rounded-[32px] overflow-hidden shadow-md border-2 border-black">
+                <img
+                  src="/thumbnails/aisfm.png"
+                  alt=""
+                  className="w-full h-full object-cover"
+                  style={{ transform: 'scale(1.4)' }}
+                />
+              </div>
+              <div className="h-[56px] w-[78px] rounded-[32px] overflow-hidden shadow-md border-2 border-black">
+                <img
+                  src="/thumbnails/cinetie.png"
+                  alt=""
+                  className="w-full h-full object-cover"
+                  style={{ transform: 'scale(2.2)' }}
+                />
+              </div>
             </div>
 
             <div className="mt-2 flex items-center gap-3">
               <span className="text-neutral-500">Living in</span>
-              <img
-                src="https://placehold.co/80x64/jpg?text=RWANDA"
-                alt=""
-                className="h-[64px] w-[80px] rounded-[20px] object-cover shadow-md"
-              />
+              <div className="h-[56px] w-[78px] rounded-[32px] overflow-hidden shadow-md border-2 border-black">
+                <img
+                  src="/thumbnails/rwanda.png"
+                  alt=""
+                  className="w-full h-full object-cover"
+                  style={{ transform: 'scale(1.1)' }}
+                />
+              </div>
               <span>Kigali</span>
             </div>
           </motion.h1>

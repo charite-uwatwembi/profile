@@ -62,7 +62,7 @@ export default function Skills() {
           <div className="relative h-48 bg-neutral-200">
             {/* Background Image */}
             <div className="absolute inset-0">
-              <img src="/thumbnails/image.png" alt="Skills Background" className="w-full h-full object-cover blur-[1px]" />
+              <img src="/thumbnails/cover.png" alt="Skills Background" className="w-full h-full object-cover blur-[1px]" />
             </div>
             
             {/* Profile Picture - positioned to overlap into white area */}
