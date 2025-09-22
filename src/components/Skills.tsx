@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 
 const skills = [
-  "UX",
-  "UI", 
-  "Product",
+  " Mobile & Web dev",
+  "AI", 
+  "ML",
   "Research"
 ];
 
