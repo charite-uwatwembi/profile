@@ -12,10 +12,10 @@ export default function Hero() {
   
   // At the very top: solid page-grey; after 10% scroll: ultra-transparent glass.
   const headerBg = useTransform(scrollYProgress, [0, 0.1], [1, 0.02]);
-  const headerBgColor = useMotionTemplate`rgba(245, 246, 247, ${headerBg})`;
+  const headerBgColor = useMotionTemplate`rgba(239,239,241, ${headerBg})`;
 
   return (
-    <section ref={containerRef} id="home" className="relative overflow-hidden h-[60vh]">
+    <section ref={containerRef} id="home" className="relative overflow-hidden h-[60vh] bg-[#efeff1]">
       {/* right-side animated beads */}
       {/* <BeadRibbon /> */}
 
@@ -45,9 +45,27 @@ export default function Hero() {
 
       </motion.header>
 
-      {/* Centered main content */}
-      <div className="flex items-start justify-center pt-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl w-full">
+      {/* Video Background - Full Height */}
+      <div className="absolute inset-0 w-full h-full z-0">
+         <div className="absolute right-0 top-0 w-1/2 h-full">
+          <video
+            className="w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            <source src="/thumbnails/video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      {/* Main content */}
+       <div className="relative z-10 flex items-center justify-center  px-4 sm:px-6 lg:px-8 h-full">
+        <div className="max-w-4xl w-full grid grid-cols-1 lg:grid-cols-2 items-end h-full ">
+          {/* Left side - Text content */}
+          <div className="w-full flex flex-col justify-center h-full bg-[#efeff1]">
           <motion.h1
             className="serif text-[24px] sm:text-[28px] md:text-[30px] leading-[1.2] text-neutral-900"
             initial="hidden"
@@ -139,6 +157,12 @@ export default function Hero() {
 </a>
 
           </motion.div>
+          </div>
+
+          {/* Right side - Empty space for video background */}
+          <div className="w-full h-full">
+            {/* Video is now positioned absolutely in the background */}
+          </div>
         </div>
       </div>
     </section>
