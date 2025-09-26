@@ -11,11 +11,12 @@ export default function Hero() {
   });
   
   // At the very top: solid page-grey; after 10% scroll: ultra-transparent glass.
-  const headerBg = useTransform(scrollYProgress, [0, 0.1], [1, 0.02]);
+  const headerBg = useTransform(scrollYProgress, [0, 0.1], [1, 0.3]);
   const headerBgColor = useMotionTemplate`rgba(239,239,241, ${headerBg})`;
 
   return (
-    <section ref={containerRef} id="home" className="relative overflow-hidden h-[60vh] bg-[#efeff1]">
+    <section ref={containerRef} id="home" className="relative overflow-hidden h-[60vh] bg-[#efeff1]
+    -mt-16 pt-16">
       {/* right-side animated beads */}
       {/* <BeadRibbon /> */}
 
