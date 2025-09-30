@@ -1,37 +1,39 @@
 import { motion } from "framer-motion";
 
 const skills = [
-  " Mobile & Web dev",
-  "AI", 
-  "ML",
-  "Research"
+  "Data Annotation",
+  "AI/ML", 
+  "Research",
+  "Communication",
+  "Mobile & Web dev"
 ];
 
 const workExperience = [
   {
-    title: "Sr. Product Designer",
-    company: "Strettch",
-    dates: "2024 - Current"
+    title: "Data Annotation",
+    company: "Zipline",
+    dates: "2025 - Current"
   },
   {
-    title: "Product Designer", 
-    company: "Kayko Group",
-    dates: "2023 - 2025"
+    title: "Front-end Development", 
+    company: "Cinetie",
+    dates: "2024 - 2025"
   },
   {
-    title: "UX/UI Designer",
-    company: "Freelance", 
-    dates: "2022 - 2023"
+    title: "Front-end Web Development",
+    company: "ThinkGreen Africa", 
+    dates: "2023 - 2024"
   },
   {
-    title: "CX & Sales",
-    company: "DNK (Bralirwa)",
-    dates: "2021 - 2023"
+    title: "Software Developer Intern",
+    company: "CodeSoft",
+    dates: "2023 - 2024"
   },
   {
-    title: "Tech Supp Eng.",
-    company: "MVM Fox Ltd",
-    dates: "2021 - 2022"
+    title: 
+  "Climate Leadership Mentorship Program - Coordinator",
+    company: "African Leadership University",
+    dates: "2022 - 2022"
   }
 ];
 

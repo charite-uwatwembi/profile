@@ -24,12 +24,11 @@ const services = [
 ];
 
 const serviceTags = [
-  "Product Design",
-  "UX Design", 
-  "UI Design",
+  "Data Annotation",
+  "AI/ML", 
   "Research",
   "Communication",
-  "Mobile & Web"
+  "Mobile & Web dev"
 ];
 
 export default function Services() {
