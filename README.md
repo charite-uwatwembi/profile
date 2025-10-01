@@ -1,1 +1,1 @@
-#  This a repo is showcasing my work.🥱
+#  This repo is showcasing my work.🥱
