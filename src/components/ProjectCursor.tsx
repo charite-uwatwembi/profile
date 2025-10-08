@@ -6,7 +6,6 @@ interface ProjectCursorProps {
 }
 
 export default function ProjectCursor({ isHovering }: ProjectCursorProps) {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
 
   const cursorX = useSpring(0, { stiffness: 500, damping: 28 });
@@ -14,7 +13,6 @@ export default function ProjectCursor({ isHovering }: ProjectCursorProps) {
 
   useEffect(() => {
     const updateMousePosition = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
     };
