@@ -14,14 +14,14 @@ const items = [
   {
     title: "Cinetie",
     desc: "Short description of project 3.",
-    link: "https://example.com/project3",
+    link: "https://www.cinetie.com/",
     tech: "React / TypeScript / Tailwind",
     thumbnail: "/thumbnails/cinetie.png"
   },
   {
     title: "AISFM",
     desc: "Short description of project 4.",
-    link: "https://example.com/project4",
+    link: "https://develop.di25v93ak8arx.amplifyapp.com/",
     tech: "React / TypeScript / Tailwind",
     thumbnail: "/thumbnails/aisfm.png"
   },
@@ -54,7 +54,7 @@ export default function Projects() {
             <span className="text-sm font-medium text-neutral-900">My Projects</span>
           </div>
           <h2 className="serif text-4xl sm:text-4xl font-light text-neutral-800 ">
-            The designs that turnvision into<br /> reality
+            Crafting clean code that brings big ideas to<br /> life.
           </h2>
         </div>
 
