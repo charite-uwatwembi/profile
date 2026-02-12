@@ -35,7 +35,7 @@ const items = [
   {
     title: "Conversational ChatBot",
     desc: "Short description of project 6.",
-    link: "https://example.com/project6",
+    link: "https://mental-health-conversational-chatbot.streamlit.app/",
     tech: "React / TypeScript / Tailwind",
     thumbnail: "/thumbnails/chat.png"
   }
@@ -68,29 +68,33 @@ export default function Projects() {
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              <a href={p.link} target="_blank" rel="noopener noreferrer" className="block">
-              {/* Image area with thumbnail support */}
-              <div className="aspect-[4/3] bg-neutral-100 relative overflow-hidden">
+              <a href={p.link} target="_blank" rel="noopener noreferrer" className="block group">
+              {/* Image area with 16:9 aspect ratio - crisp, professional treatment */}
+              <div className="aspect-video bg-neutral-100 relative overflow-hidden ring-1 ring-black/10">
                 {p.thumbnail ? (
-                  <img 
-                    src={p.thumbnail} 
-                    alt={`${p.title} project thumbnail`}
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      // Fallback to placeholder if image fails to load
-                      e.currentTarget.style.display = 'none';
-                      const placeholder = e.currentTarget.nextElementSibling as HTMLElement;
-                      if (placeholder) {
-                        placeholder.style.display = 'grid';
-                      }
-                    }}
-                  />
+                  <>
+                    <img 
+                      src={p.thumbnail} 
+                      alt={`${p.title} project thumbnail`}
+                      className="w-full h-full object-cover brightness-[0.95] contrast-[1.05] transition duration-500 ease-out group-hover:scale-105"
+                      onError={(e) => {
+                        // Fallback to placeholder if image fails to load
+                        e.currentTarget.style.display = 'none';
+                        const placeholder = e.currentTarget.nextElementSibling as HTMLElement;
+                        if (placeholder) {
+                          placeholder.style.display = 'grid';
+                        }
+                      }}
+                    />
+                    {/* Consistent gradient overlay - no blur, crisp and professional */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent pointer-events-none" />
+                  </>
                 ) : null}
                 <div className={`absolute inset-0 grid place-items-center ${p.thumbnail ? 'hidden' : 'grid'}`}>
                   <FolderGit2 className="h-12 w-12 text-neutral-400" />
                 </div>
               </div>
-              <div className="p-6">
+              <div className="p-6 min-h-[160px]">
                 <h3 className="text-xl font-semibold text-neutral-900 mb-2">{p.title}</h3>
                 <p className="text-neutral-600 mb-4">{p.desc}</p>
                 <div className="flex items-center justify-between">

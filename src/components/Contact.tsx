@@ -11,7 +11,7 @@ export default function Contact() {
             <span className="text-sm font-medium text-neutral-900">Contact</span>
           </div>
           <h2 className="serif text-4xl sm:text-4xl font-light text-neutral-800">
-            Reach out and let's bring your vision to life
+            Reach out and let's bring your ideas to life
           </h2>
         </div>
 
