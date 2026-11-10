@@ -1386,16 +1386,53 @@ button:disabled {
   line-height: 1.7;
   margin-top: 14px;
 }
-.form-status {
-  border-radius: 10px;
-  padding: 14px 16px;
-  margin-top: 18px;
-  font-size: 14px;
-  line-height: 1.7;
+.form-verification-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
 }
-.form-status-success {
+.form-verification-note svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.contact-confirmation {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  border: 1px solid #c9e0d0;
+  border-radius: 14px;
   background: #e7f2e9;
   color: #255b33;
+  padding: 18px 20px;
+  margin-bottom: 22px;
+}
+.confirmation-icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.contact-confirmation h3 {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.contact-confirmation p {
+  font-size: 13px;
+  color: #4e6b55;
+  line-height: 1.65;
+  margin-top: 4px;
+}
+.confirmation-close {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  margin: -8px -10px -8px auto;
+  border-radius: 50%;
+  color: #255b33;
+}
+.confirmation-close:hover {
+  background: #d6e8da;
 }
 .site-footer {
   padding-top: 100px;

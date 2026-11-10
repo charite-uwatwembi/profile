@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { FormEvent } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, ShieldCheck, X } from "lucide-react";
 import { profile } from "../data/portfolio";
 import SectionHeading from "./SectionHeading";
 
@@ -49,6 +49,28 @@ export default function Contact() {
         <SectionHeading label="Contact">
           Reach out and let’s bring your vision to life
         </SectionHeading>
+        {received && (
+          <div
+            className="contact-confirmation"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            <CheckCircle2 size={24} className="confirmation-icon" aria-hidden="true" />
+            <div>
+              <h3>Message sent successfully!</h3>
+              <p>Thank you for reaching out. I’ll get back to you soon.</p>
+            </div>
+            <button
+              type="button"
+              className="confirmation-close"
+              aria-label="Dismiss confirmation"
+              onClick={() => setReceived(false)}
+            >
+              <X size={18} aria-hidden="true" />
+            </button>
+          </div>
+        )}
         <form
           className="contact-form"
           action={`https://formsubmit.co/${profile.email}`}
@@ -155,15 +177,13 @@ export default function Contact() {
               <ArrowUpRight size={17} aria-hidden="true" />
             </button>
           </fieldset>
-          <p className="form-note">
-            You may see a quick spam check before sending. You’ll return here
-            when your message is submitted.
+          <p className="form-note form-verification-note">
+            <ShieldCheck size={16} aria-hidden="true" />
+            <span>
+              Complete the CAPTCHA on the next screen to send your message.
+              You’ll return here afterward.
+            </span>
           </p>
-          {received && (
-            <p className="form-status form-status-success" role="status">
-              Message submitted. Thanks for reaching out!
-            </p>
-          )}
         </form>
         <div className="call-booking">
           <p>Prefer a conversation?</p>
