@@ -1361,11 +1361,24 @@ button:disabled {
   resize: vertical;
   min-height: 100px;
 }
-.contact-form > .button {
+.contact-fields {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+.contact-honeypot {
+  display: none;
+}
+.contact-fields > .button {
   width: 100%;
   min-height: 56px;
   font-size: 16px;
   margin-top: 4px;
+}
+.contact-fields:disabled > .button {
+  opacity: 0.65;
+  transform: none;
 }
 .form-note {
   font-size: 12px;
@@ -1373,21 +1386,20 @@ button:disabled {
   line-height: 1.7;
   margin-top: 14px;
 }
-.draft-preview {
-  border-top: 1px solid #ddd;
-  margin-top: 24px;
-  padding-top: 22px;
+.form-status {
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-top: 18px;
+  font-size: 14px;
+  line-height: 1.7;
 }
-.draft-preview h4 {
-  font-size: 17px;
-  font-weight: 500;
+.form-status-success {
+  background: #e7f2e9;
+  color: #255b33;
 }
-.draft-preview > p:not(.form-note) {
-  font-size: 15px;
-  line-height: 1.8;
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
-  margin-block: 17px;
+.form-status-error {
+  background: #f8e9e7;
+  color: #873a30;
 }
 .site-footer {
   padding-top: 100px;
@@ -1977,7 +1989,7 @@ button:disabled {
   .form-field {
     margin-bottom: 22px;
   }
-  .contact-form > .button {
+  .contact-fields > .button {
     font-size: 15px;
     gap: 13px;
     min-height: 52px;

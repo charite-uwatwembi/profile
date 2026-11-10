@@ -23,7 +23,9 @@ npm run preview
 - The downloadable résumé is `public/Charite_Uwatwembi_Resume.pdf`.
 - Each project opens an accessible detail dialog with its description, tags, and live link.
 - La Perla Negra uses a screenshot of its public homepage. Its technologies and specific contribution have not been specified.
-- The contact form follows the reference’s inset gray panel and field layout, with optional website and budget fields. It validates input and prepares a local email draft. Visitors review it and open their email client to send it; there is no message delivery backend.
+- The contact form uses an inset gray panel with optional website and budget fields. It validates input and sends submissions through [FormSubmit](https://formsubmit.co/) to the profile email address. The visitor’s email is used as Reply-To. A honeypot, disabled controls during sending, request timeout, and accessible success/error messages support reliable submissions.
+- FormSubmit requires a one-time activation email for each form. Confirm the activation link sent to the profile email before relying on delivery; pending submissions are retained by the provider for up to 30 days. No API key or paid plan is required. If the recipient or site domain changes, submit a test and check activation again.
+- Run `npm test` to check email-service acknowledgements and failure handling. These tests mock the provider and do not send email; verify actual delivery separately on the public site after activation.
 - Primary actions, including “Read Paper,” share the rounded, glossy “Get in touch” button style.
 - Global styles, card sizing, and responsive layouts are in `src/index.css`.
 
