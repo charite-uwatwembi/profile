@@ -16,7 +16,7 @@ export default function Hero() {
     <section id="home" className="hero" aria-labelledby="hero-title">
       <a className="availability" href="#contact">
         <span className="status-dot" />
-        Open to opportunities
+        Currently available
       </a>
       <div className="hero-media" aria-hidden="true">
         <video
