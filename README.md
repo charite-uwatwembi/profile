@@ -1,6 +1,6 @@
 # Charite Uwatwembi — Portfolio
 
-Personal portfolio built with React, TypeScript, Vite, and Framer Motion. The design follows the visual reference at https://www.tonylewismanzi.com/ using Charite’s projects, experience, education, and writing.
+Personal portfolio built with React, TypeScript, Vite, and Framer Motion, featuring Charite’s projects, experience, education, and writing.
 
 ## Development
 
