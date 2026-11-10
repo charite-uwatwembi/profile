@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { FormEvent } from "react";
 import { ArrowUpRight, CheckCircle2, ShieldCheck, X } from "lucide-react";
 import { profile } from "../data/portfolio";
@@ -6,6 +6,7 @@ import SectionHeading from "./SectionHeading";
 
 export default function Contact() {
   const [sending, setSending] = useState(false);
+  const confirmation = useRef<HTMLDivElement>(null);
   const [received, setReceived] = useState(
     () => new URLSearchParams(window.location.search).get("contact") === "received",
   );
@@ -18,6 +19,8 @@ export default function Contact() {
       const url = new URL(window.location.href);
       url.searchParams.delete("contact");
       window.history.replaceState(window.history.state, "", url);
+      confirmation.current?.scrollIntoView({ behavior: "instant", block: "center" });
+      confirmation.current?.focus({ preventScroll: true });
     }
     return () => window.removeEventListener("pageshow", restoreForm);
   }, [received]);
@@ -52,6 +55,8 @@ export default function Contact() {
         {received && (
           <div
             className="contact-confirmation"
+            ref={confirmation}
+            tabIndex={-1}
             role="status"
             aria-live="polite"
             aria-atomic="true"
