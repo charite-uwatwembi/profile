@@ -23,9 +23,9 @@ npm run preview
 - The downloadable résumé is `public/Charite_Uwatwembi_Resume.pdf`.
 - Each project opens an accessible detail dialog with its description, tags, and live link.
 - La Perla Negra uses a screenshot of its public homepage. Its technologies and specific contribution have not been specified.
-- The contact form uses an inset gray panel with optional website and budget fields. It validates input and sends submissions through [FormSubmit](https://formsubmit.co/) to the profile email address. The visitor’s email is used as Reply-To. A honeypot, disabled controls during sending, request timeout, and accessible success/error messages support reliable submissions.
+- The contact form uses an inset gray panel with optional website and budget fields. It validates input and POSTs directly to [FormSubmit](https://formsubmit.co/) to forward submissions to the profile email address. The visitor’s email is used as Reply-To. FormSubmit’s normal reCAPTCHA verification remains enabled, and a honeypot adds spam protection. Visitors return to the portfolio after the provider accepts a submission. The submit button prevents duplicate clicks without disabling the fields needed for the POST.
 - FormSubmit requires a one-time activation email for each form. Confirm the activation link sent to the profile email before relying on delivery; pending submissions are retained by the provider for up to 30 days. No API key or paid plan is required. If the recipient or site domain changes, submit a test and check activation again.
-- Run `npm test` to check email-service acknowledgements and failure handling. These tests mock the provider and do not send email; verify actual delivery separately on the public site after activation.
+- Verify actual delivery on the public site after activation, including the verification step, return to the contact section, and receipt in the destination mailbox. Background AJAX requests were unreliable during live verification, so this form uses the provider’s standard submission flow instead.
 - Primary actions, including “Read Paper,” share the rounded, glossy “Get in touch” button style.
 - Global styles, card sizing, and responsive layouts are in `src/index.css`.
 

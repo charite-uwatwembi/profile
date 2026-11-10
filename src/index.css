@@ -1376,7 +1376,7 @@ button:disabled {
   font-size: 16px;
   margin-top: 4px;
 }
-.contact-fields:disabled > .button {
+.contact-fields > .button:disabled {
   opacity: 0.65;
   transform: none;
 }
@@ -1396,10 +1396,6 @@ button:disabled {
 .form-status-success {
   background: #e7f2e9;
   color: #255b33;
-}
-.form-status-error {
-  background: #f8e9e7;
-  color: #873a30;
 }
 .site-footer {
   padding-top: 100px;

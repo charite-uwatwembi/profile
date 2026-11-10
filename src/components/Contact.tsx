@@ -1,49 +1,46 @@
-import { useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import type { FormEvent } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { profile } from "../data/portfolio";
 import SectionHeading from "./SectionHeading";
-import { sendContactMessage } from "../lib/sendContactMessage";
 
 export default function Contact() {
   const [sending, setSending] = useState(false);
-  const inFlight = useRef(false);
-  const [status, setStatus] = useState<"success" | "error" | null>(null);
+  const [received, setReceived] = useState(
+    () => new URLSearchParams(window.location.search).get("contact") === "received",
+  );
+  const formUrl = `${window.location.origin}${window.location.pathname}`;
 
-  async function sendMessage(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (inFlight.current) return;
+  useEffect(() => {
+    const restoreForm = () => setSending(false);
+    window.addEventListener("pageshow", restoreForm);
+    if (received) {
+      const url = new URL(window.location.href);
+      url.searchParams.delete("contact");
+      window.history.replaceState(window.history.state, "", url);
+    }
+    return () => window.removeEventListener("pageshow", restoreForm);
+  }, [received]);
+
+  function sendMessage(event: FormEvent<HTMLFormElement>) {
+    if (sending) {
+      event.preventDefault();
+      return;
+    }
     const form = event.currentTarget;
     const data = new FormData(form);
     const name = String(data.get("name") ?? "").trim();
     const email = String(data.get("email") ?? "").trim();
     const message = String(data.get("message") ?? "").trim();
-    const website = String(data.get("website") ?? "").trim();
-    const budget = String(data.get("budget") ?? "");
     const messageField = form.elements.namedItem("message") as HTMLTextAreaElement;
     messageField.setCustomValidity(message ? "" : "Please write a message.");
-    if (!form.reportValidity() || !name || !email || !message) return;
-    inFlight.current = true;
-    setSending(true);
-    setStatus(null);
-    try {
-      await sendContactMessage({
-        name,
-        email,
-        website,
-        budget,
-        message,
-        honeypot: String(data.get("_honey") ?? ""),
-        url: `${window.location.origin}${window.location.pathname}#contact`,
-      });
-      form.reset();
-      setStatus("success");
-    } catch {
-      setStatus("error");
-    } finally {
-      inFlight.current = false;
-      setSending(false);
+    if (!form.reportValidity() || !name || !email || !message) {
+      event.preventDefault();
+      return;
     }
+    // Let the browser POST to FormSubmit so its normal spam verification can run.
+    setSending(true);
+    setReceived(false);
   }
 
   return (
@@ -59,12 +56,24 @@ export default function Contact() {
           onSubmit={sendMessage}
           aria-busy={sending}
           onChange={(event) => {
-            setStatus(null);
+            setReceived(false);
             if (event.target instanceof HTMLTextAreaElement)
               event.target.setCustomValidity("");
           }}
         >
-          <fieldset className="contact-fields" disabled={sending}>
+          <input
+            type="hidden"
+            name="_subject"
+            value="New portfolio inquiry for Charite"
+          />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_url" value={`${formUrl}#contact`} />
+          <input
+            type="hidden"
+            name="_next"
+            value={`${formUrl}?contact=received#contact`}
+          />
+          <fieldset className="contact-fields">
             <div className="contact-honeypot" aria-hidden="true">
               <label htmlFor="contact-company">Leave this field empty</label>
               <input
@@ -137,22 +146,22 @@ export default function Contact() {
                 maxLength={2000}
               />
             </div>
-            <button type="submit" className="button button-primary">
-              {sending ? "Sending…" : "Send your message"}
+            <button
+              type="submit"
+              className="button button-primary"
+              disabled={sending}
+            >
+              {sending ? "Continuing…" : "Send your message"}
               <ArrowUpRight size={17} aria-hidden="true" />
             </button>
           </fieldset>
           <p className="form-note">
-            Your message goes straight to my inbox. I’ll get back to you soon.
+            You may see a quick spam check before sending. You’ll return here
+            when your message is submitted.
           </p>
-          {status && (
-            <p
-              className={`form-status form-status-${status}`}
-              role={status === "error" ? "alert" : "status"}
-            >
-              {status === "success"
-                ? "Message sent. Thanks for reaching out!"
-                : "Your message couldn’t be sent. Please try again, or use the email address in the footer."}
+          {received && (
+            <p className="form-status form-status-success" role="status">
+              Message submitted. Thanks for reaching out!
             </p>
           )}
         </form>
