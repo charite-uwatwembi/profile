@@ -1,22 +1,31 @@
 import { useEffect } from "react";
 
-export function useReveal(threshold = 0.1) {
+export function useReveal() {
   useEffect(() => {
-    const elements = document.querySelectorAll(".reveal");
-
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      !("IntersectionObserver" in window)
+    )
+      return;
     const observer = new IntersectionObserver(
-      (entries, obs) => {
+      (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-            obs.unobserve(entry.target);
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
           }
         });
       },
-      { threshold }
+      { threshold: 0.08 },
     );
-
-    elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, [threshold]);
+    const elements = document.querySelectorAll(".reveal");
+    elements.forEach((element) => {
+      element.classList.add("will-reveal");
+      observer.observe(element);
+    });
+    return () => {
+      observer.disconnect();
+      elements.forEach((element) => element.classList.remove("will-reveal"));
+    };
+  }, []);
 }

@@ -1,102 +1,56 @@
-import { motion } from "framer-motion";
-import { Github, Linkedin } from "lucide-react";
-
+import { ArrowUp, Github, Linkedin, ArrowUpRight } from "lucide-react";
+import { profile } from "../data/portfolio";
 export default function Footer() {
   return (
-    <footer className="py-24 bg-neutral-100 border-t border-neutral-200">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        {/* Main Content */}
-        <div className="text-center mb-16">
-          {/* Name */}
-          <motion.h1 
-            className="serif text-6xl sm:text-7xl font-bold text-neutral-900 mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            viewport={{ once: true }}
+    <footer className="site-footer">
+      <div className="container">
+        <h2 className="footer-name">CHARITE</h2>
+        <p className="footer-description">
+          I build web products and machine learning systems with curiosity and
+          care. My work connects software engineering, data, and practical ideas
+          that make a difference.
+        </p>
+        <a className="footer-email" href={`mailto:${profile.email}`}>
+          {profile.email}
+        </a>
+        <nav className="footer-socials" aria-label="Social links">
+          <a
+            href={profile.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
           >
-            CHARITE
-          </motion.h1>
-          
-          {/* Description */}
-          <motion.p 
-            className="text-neutral-600 text-lg leading-relaxed max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            viewport={{ once: true }}
+            <Github size={23} />
+          </a>
+          <a
+            href={profile.medium}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Medium"
           >
-            I craft unique product experiences that reflect brand's personality and objectives. With a solid background in software engineering, I blend innovation with practicality and stay on top of design trends to ensure all projects are visually stunning and functionally flawless.
-          </motion.p>
+            <span className="medium-mark" aria-hidden="true">
+              M
+            </span>
+          </a>
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <Linkedin size={23} />
+          </a>
+        </nav>
+        <div className="footer-bottom">
+          <p>© {new Date().getFullYear()} Charite Uwatwembi</p>
+          <a className="text-link" href="#home">
+            Back to top <ArrowUp size={15} aria-hidden="true" />
+          </a>
+          <span>
+            All Rights Reserved <ArrowUpRight size={12} aria-hidden="true" />
+          </span>
         </div>
-
-        {/* Contact and Social Section */}
-        <motion.div 
-          className="text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          {/* Email */}
-          <div className="mb-6">
-            <a 
-              href="mailto:chariteuwatwembi@gmail.com"
-              className="text-neutral-700 text-lg hover:text-neutral-900 transition-colors"
-            >
-              chariteuwatwembi@gmail.com
-            </a>
-            <div className="mt-2 h-px bg-neutral-300 w-32 mx-auto"></div>
-          </div>
-
-          {/* Social Icons */}
-          <div className="flex items-center justify-center gap-6">
-            <a 
-              href="https://github.com/charite-uwatwembi" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-neutral-700 hover:text-neutral-900 transition-colors"
-            >
-              <Github className="w-6 h-6" />
-            </a>
-            <a 
-              href="https://medium.com/@c.uwatwembi" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-neutral-700 hover:text-neutral-900 transition-colors"
-            >
-              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75S24 8.83 24 12z"/>
-              </svg>
-            </a>
-            <a 
-              href="https://www.linkedin.com/in/uwatwembi-charite/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-neutral-700 hover:text-neutral-900 transition-colors"
-            >
-              <Linkedin className="w-6 h-6" />
-            </a>
-          </div>
-        </motion.div>
-
-        {/* Copyright */}
-        <motion.div 
-          className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-16 pt-8 border-t border-neutral-200"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-          viewport={{ once: true }}
-        >
-          <p className="text-neutral-600 text-sm">
-            © 2025 Charite Uwatwembi
-          </p>
-          <p className="text-neutral-600 text-sm">
-            All Rights Reserved
-          </p>
-        </motion.div>
       </div>
     </footer>
   );
 }
-  

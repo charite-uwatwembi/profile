@@ -1,7 +1,8 @@
-// src/App.tsx
-
+import { useState } from "react";
+import { MotionConfig, useReducedMotion } from "framer-motion";
 import Contact from "./components/Contact";
 import CursorFollower from "./components/CursorFollower";
+import MotionControl from "./components/MotionControl";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Process from "./components/Process";
@@ -10,22 +11,36 @@ import ResearchPapers from "./components/ResearchPapers";
 import Services from "./components/Services";
 import Skills from "./components/Skills";
 import { useReveal } from "./hooks/useReveal";
+import { MotionPreferences } from "./hooks/motionPreferences";
 
 export default function App() {
-  useReveal(0.1);
+  const reducedMotion = useReducedMotion();
+  const [motionOverride, setMotionOverride] = useState<boolean | null>(null);
+  const paused = motionOverride ?? !!reducedMotion;
+  useReveal();
   return (
-    <div className="min-h-screen bg-[#f5f6f7] text-neutral-900">
-      <CursorFollower />
-      <main className="pt-20">
-        <Hero />
-        <Projects />
-        <Skills />
-        <Process />
-        <Services />
-        <ResearchPapers />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <MotionPreferences.Provider
+      value={{ paused, toggle: () => setMotionOverride(!paused) }}
+    >
+      <MotionConfig reducedMotion={paused ? "always" : "never"}>
+        <div className="portfolio" data-motion={paused ? "paused" : "active"}>
+          <a href="#main" className="skip-link">
+            Skip to content
+          </a>
+          <CursorFollower />
+          <main id="main">
+            <Hero />
+            <Projects />
+            <Skills />
+            <Process />
+            <Services />
+            <ResearchPapers />
+            <Contact />
+          </main>
+          <Footer />
+          <MotionControl />
+        </div>
+      </MotionConfig>
+    </MotionPreferences.Provider>
   );
 }

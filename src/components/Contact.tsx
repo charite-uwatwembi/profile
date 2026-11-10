@@ -1,133 +1,149 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import type { FormEvent } from "react";
+import { ArrowUpRight } from "lucide-react";
+import { profile } from "../data/portfolio";
+import SectionHeading from "./SectionHeading";
 
 export default function Contact() {
+  const [draft, setDraft] = useState<{ url: string; body: string } | null>(
+    null,
+  );
+
+  function prepareDraft(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const name = String(data.get("name") ?? "").trim();
+    const email = String(data.get("email") ?? "").trim();
+    const message = String(data.get("message") ?? "").trim();
+    const website = String(data.get("website") ?? "").trim();
+    const budget = String(data.get("budget") ?? "");
+    const messageField = event.currentTarget.elements.namedItem(
+      "message",
+    ) as HTMLTextAreaElement;
+    messageField.setCustomValidity(message ? "" : "Please write a message.");
+    if (!event.currentTarget.reportValidity() || !name || !email || !message)
+      return;
+    const subject = `Let’s work together — ${name}`;
+    const details = [
+      `From: ${name}`,
+      `Email: ${email}`,
+      website && `Website: ${website}`,
+      budget && `Budget: ${budget}`,
+    ]
+      .filter(Boolean)
+      .join("\n");
+    const body = `Hi Charite,\n\n${message}\n\n${details}`;
+    setDraft({
+      url: `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
+      body,
+    });
+  }
+
   return (
-    <section id="contact" className="py-24 bg-white border-t border-neutral-200">
-      <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
-        {/* Header Section */}
-        <div className="mb-16 reveal">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-2 h-2 bg-neutral-900 rounded-full"></div>
-            <span className="text-sm font-medium text-neutral-900">Contact</span>
+    <section id="contact" className="section contact-section">
+      <div className="container contact-grid">
+        <SectionHeading label="Contact">
+          Reach out and let’s bring your vision to life
+        </SectionHeading>
+        <form
+          className="contact-form"
+          onSubmit={prepareDraft}
+          onChange={(event) => {
+            setDraft(null);
+            if (event.target instanceof HTMLTextAreaElement)
+              event.target.setCustomValidity("");
+          }}
+        >
+          <div className="form-row">
+            <div className="form-field">
+              <label htmlFor="contact-name">Full Name</label>
+              <input
+                id="contact-name"
+                name="name"
+                autoComplete="name"
+                placeholder="Your full name"
+                required
+                maxLength={100}
+                pattern=".*\S.*"
+              />
+            </div>
+            <div className="form-field">
+              <label htmlFor="contact-email">Email Address</label>
+              <input
+                id="contact-email"
+                name="email"
+                type="email"
+                autoComplete="email"
+                placeholder="you@example.com"
+                required
+                maxLength={254}
+              />
+            </div>
           </div>
-          <h2 className="serif text-4xl sm:text-4xl font-light text-neutral-800">
-            Reach out and let's bring your ideas to life
-          </h2>
-        </div>
-
-        {/* Contact Form Card */}
-        <motion.div 
-          className="reveal rounded-2xl bg-neutral-100 border border-neutral-200 p-8 shadow-sm"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
-          <form className="space-y-6">
-            {/* Name and Email Row */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-2">
-                  Full Name
-                </label>
-                <input 
-                  type="text"
-                  className="w-full bg-white rounded-lg px-4 py-3 border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-900/10 focus:border-neutral-400 transition"
-                  placeholder="John Murinzi"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-2">
-                  Email Address
-                </label>
-                <input 
-                  type="email"
-                  className="w-full bg-white rounded-lg px-4 py-3 border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-900/10 focus:border-neutral-400 transition"
-                  placeholder="murinzi@example.com"
-                />
-              </div>
-            </div>
-
-            {/* Website Field */}
-            <div>
-              <label className="block text-sm font-medium text-neutral-700 mb-2">
-                Website (optional)
-              </label>
-              <input 
-                type="url"
-                className="w-full bg-white rounded-lg px-4 py-3 border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-900/10 focus:border-neutral-400 transition"
-                placeholder="Company Website"
-              />
-            </div>
-
-            {/* Budget Select */}
-            <div>
-              <label className="block text-sm font-medium text-neutral-700 mb-2">
-                Select Budget
-              </label>
-              <select className="w-full bg-white rounded-lg px-4 py-3 border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-900/10 focus:border-neutral-400 transition appearance-none">
-                <option value="">Select...</option>
-                <option value="under-5k">Under $5,000</option>
-                <option value="5k-10k">$5,000 - $10,000</option>
-                <option value="10k-25k">$10,000 - $25,000</option>
-                <option value="25k-50k">$25,000 - $50,000</option>
-                <option value="over-50k">Over $50,000</option>
-              </select>
-            </div>
-
-            {/* Message Field */}
-            <div>
-              <label className="block text-sm font-medium text-neutral-700 mb-2">
-                How may I assist you?
-              </label>
-              <textarea 
-                rows={4}
-                className="w-full bg-white rounded-lg px-4 py-3 border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-900/10 focus:border-neutral-400 transition resize-none"
-                placeholder="Give us more info.."
-              />
-            </div>
-
-            {/* Submit Button */}
-            <div className="pt-4">
-              <motion.button
-                type="submit"
-                className="w-full bg-neutral-900 text-white px-6 py-4 rounded-lg font-medium text-lg shadow-sm hover:shadow-md transition-all duration-300"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Send Your Message
-              </motion.button>
-            </div>
-          </form>
-        </motion.div>
-
-        {/* Call to Action Section */}
-        <motion.div 
-          className="reveal mt-8 flex items-center justify-between"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          <p  style={{ fontFamily: '"Caveat", cursive' }}
-  className="
-    text-2xl md:text-3xl
-    font-semibold
-    text-neutral-500
-    text-center
-    leading-snug
-  ">
-            Preffer to Book a call ?
+          <div className="form-field">
+            <label htmlFor="contact-website">
+              Website <span>(optional)</span>
+            </label>
+            <input
+              id="contact-website"
+              name="website"
+              type="url"
+              autoComplete="url"
+              placeholder="https://yourwebsite.com"
+              maxLength={500}
+            />
+          </div>
+          <div className="form-field">
+            <label htmlFor="contact-budget">
+              Select Budget <span>(optional)</span>
+            </label>
+            <select id="contact-budget" name="budget" defaultValue="">
+              <option value="">Select…</option>
+              <option>Less than $1,000</option>
+              <option>$1,000 - $2,000</option>
+              <option>$2,000 - $4,000</option>
+              <option>$4,000+</option>
+              <option>Let’s discuss</option>
+            </select>
+          </div>
+          <div className="form-field">
+            <label htmlFor="contact-message">How may I assist you?</label>
+            <textarea
+              id="contact-message"
+              name="message"
+              rows={4}
+              placeholder="Tell me a little about your idea, goals, or opportunity…"
+              required
+              maxLength={2000}
+            />
+          </div>
+          <button type="submit" className="button button-primary">
+            Prepare email draft <ArrowUpRight size={17} aria-hidden="true" />
+          </button>
+          <p className="form-note">
+            Review your draft here, then open your email app to send it.
           </p>
-          <a 
-            href="https://calendly.com/chariteuwatwembi/30min" 
-            className="text-neutral-900 text-lg font-medium underline hover:text-neutral-700 transition"
-          >
-            Book a call anytime
+          {draft && (
+            <div className="draft-preview" role="status">
+              <h4>Your draft is ready</h4>
+              <p>{draft.body}</p>
+              <a className="text-link" href={draft.url}>
+                Open in email app <ArrowUpRight size={16} aria-hidden="true" />
+              </a>
+              <p className="form-note">
+                Nothing has been sent. No email app? Email me directly using the
+                address in the footer.
+              </p>
+            </div>
+          )}
+        </form>
+        <div className="call-booking">
+          <p>Prefer a conversation?</p>
+          <a href={profile.calendar} target="_blank" rel="noopener noreferrer">
+            Book a call anytime <ArrowUpRight size={18} aria-hidden="true" />
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
 }
-  
